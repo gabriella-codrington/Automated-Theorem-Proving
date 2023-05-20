@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="atp_css.css">
+        <title>Automated Theorem Proving - Home</title>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="menu0">
+                <a class="menuBar" href="./atp_home.html">ATP</a> 
+            </div>
+            <div class="menu1">
+                <a class="menuBar" href="./atp_home.html">Home</a> 
+            </div>
+            <div class="menu2">
+                <a class="menuBar" href="./atp_author.html">About</a> 
+            </div>
+            <div class="menu3">
+                <a class="menuBar" href="./atp_ref.html">References</a> 
+            </div>
+            <div class="menu4">
+                <a class="menuBar" href="./atp_home.html#More">More</a> 
+            </div>
+          </div>
+        <h1 id="heading">Automated Theorem Proving: Godel's vs the Boyer Moore Theorem Prover</h1>
+        <h2><span id="text"></span> Today is <span id="day"></span></h2>
+        <h2>Overview</h2>
+        <p>Automated Theorem Proving (ATP) deals with the development of computer pro-
+            grams that show a statement is a logical consequence of a set of axioms. A notable
+            theorem prover is the Boyer-Moore theorem prover (NQTHM) developed by Robert
+            S. Boyer and J. Strother Moore using Pure LISP [4]. The prover forms definitions
+            as totally recursive functions and makes extensive use of rewriting and an induction
+            heuristic that is used when rewriting and symbolic evaluation fails. Boyer-Moore
+            was used to confirm Kurt G ̈odel’s First Incompleteness Theorem which states the
+            following: any consistent formal system F within which a certain amount of elemen-
+            tary arithmetic can be carried out is incomplete; i.e., there are statements of the
+            language of F which can neither be proved nor disproved in F. The Boyer-Moore
+            theorem prover takes a series of lemmas are input and the system generates the
+            proofs. However, using the Boyer-Moore proof system requires feeding it a “well-
+            chosen sequence of lemmas”, so it would seem the information being fed into the
+            two systems is similar.
+        </p>
+        <div class="wrapper" id="More">
+            <div id="item1">
+                <a class="box" href="./atp_intro.html">Introduction and Problem</a>
+            </div>
+            <div id="item2">
+                <a class="box" href="./atp_godel.html">Godel's Proof</a>
+            </div>
+            <div id="item3">
+                <a class="box" href="./atp_bm.html">Boyer-Moore Proof</a>
+            </div>
+            <div id="item4">
+                <a class="box" href="./atp_conclusion.html">Conclusions</a>
+            </div>
+            <div id="item5">
+                <a class="box" href="./atp_ref.html">References</a>
+            </div>
+            <div id="item6">
+                <a class="box" href="./atp_author.html">About</a>
+            </div>
+        </div>
+          
+          
+
+        <script src="script.js"></script>  
+    </body>
+</html>

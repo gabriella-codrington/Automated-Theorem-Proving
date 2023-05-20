@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="atp_css.css">
+        <title>Automated Theorem Proving - Boyer-Moore Proof</title>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="menu0">
+                <a class="menuBar" href="./atp_home.html">ATP</a> 
+            </div>
+            <div class="menu1">
+                <a class="menuBar" href="./atp_home.html">Home</a> 
+            </div>
+            <div class="menu2">
+                <a class="menuBar" href="./atp_author.html">About</a> 
+            </div>
+            <div class="menu3">
+                <a class="menuBar" href="./atp_ref.html">References</a> 
+            </div>
+            <div class="menu4">
+                <a class="menuBar" href="./atp_home.html#More">More</a> 
+            </div>
+          </div>
+        <h1 id="heading">Automated Theorem Proving: Boyer-Moore Theorem Prover Proof</h1>
+        <main>
+            
+                <section>
+                    <p>The Boyer-Moore theorem prover is one of the best-known heuristic theorem provers.
+                    It features a powerful heuristic that automatically discovers the induction scheme
+                    required for proof. It takes previously proved lemmas and uses them to simplify
+                    terms during an attempted proof. It has been used to prove multiple theorems,
+                    including the first incompleteness theorem. The motivation for using this theorem
+                    prover is to make proofs shorter. So if we have axioms for symbolic computations
+                    such as for Lisp computations, the proofs are simplified.</p>
+                    <p>The theorem prover does not independently generate the entire proof, rather it is led
+                    to the proof via a series of well-thought-out definitions and lemmas that are given
+                    by the user of the prover. Therefore, this prover is technically used as a high-level
+                    proof checker.</p>
+                    <p>In order to prove the first incompleteness theorem, Boyer-Moore uses the syntax and
+                    semantics of pure Lisp (a unique language that uses symbolic rather than numeric
+                    computation) [6]. The Boyer-Moore logic deals with recursive Lisp functions as long as their evaluations terminate on all arguments. In other words, the functions must
+                    be total. The use of solely total functions ensures the simplification of logic and
+                    mechanization. Additionally, Boyer-Moore logic is based on first-order logic with
+                    equality but without quantifiers. It doesn’t use quantifiers in order to raise the level
+                    of mechanization in the theorem prover. Lastly, the logic has no type; the variables
+                    range over multiple data structures including booleans, natural numbers, lists, and
+                    more.</p>
+                </section>
+
+            
+                <section>
+                    <p>The basic axioms are stated in a quantifier-free first-order logic with equality. Two
+                    boolean constants “True” and “False” are used (they will be abbreviated as T and
+                    F, respectively). The 3-place “IF” function is the only primitive logical operation.
+                    For example, the term (IF X Y Z), read as (if X then Y else Z), is axiomatized to
+                    return Z if X is equal to F, and Y otherwise as the following:</p>
+                    <p>X = F ] (IF X Y Z) = Z</p>
+                    <p>X != F ] (IF X Y Z) = Y</p>
+                    <p>The Boyer-Moore logic predicate EQUAL can be axiomatized to return T when
+                        both arguments and identical, and F if not.</p>
+                    <p>X = F ] (EQUAL X Z) = T</p>
+                    <p>X != F ] (EQUAL X Z) = F</p>
+                    <p>Other Boyer-Moore logical operators include OR, NOT, AND, and IMPLIES. They
+                        are defined in terms of IF as the following:</p>
+                    <p>(NOT X) = (IF X F T) (if x then false else true)</p>
+                    <p>(OR X Y) = (IF X T (IF Y T F)) (if x then true, else if y then true else false)</p>
+                    <p>(AND X Y) = (IF X (IF Y T F) F) (if x then, if y then true else false, else false)</p>
+                    <p>(IMPLIES X Y) = (IF X (IF Y T F) T) (if x then, if y then true else false, else
+                        true)</p>
+                </section>
+
+            
+                <section>
+                    <p>The shell principle of Boyer-Moore allows the user to add axioms that describe
+                    new objects. For example, natural numbers are axiomatized by defining a recog-
+                    nizer function “NUMBERP,” a constrictor function “ADD1,” a destructor function
+                    “SUB1,” and a bottom object “ZERO,” all of which are added in a shell.</p>
+                    <p>The total functions accepted by the system have to be defined recursively and the
+                    recursion must “bottom out” at some point. The induction principle allows inductive
+                    proofs based on these definitions by recursion.</p>
+                    <p>The prover uses a formal statement of the incompleteness theorem including a def-
+                    inition of the metatheory of Z2 in terms of a Lisp representation for the formulas
+                    and proofs of Z2, a hereditarily finite set theory. The theorem asserts the exis-
+                    tence of an undecidable sentence U of Z2 such that if U is provable or disprovable
+                    in Z2, then it is both provable and disprovable. The completeness of Z2 implies
+                    its inconsistency. This is the conventional statement of the incompleteness theo-
+                    rem, but such a statement cannot be formalized by the Boyer-Moore prover be-
+                    cause the consistency hypothesis requires the use of quantification. The Z2 the-
+                    ory is always either incomplete or inconsistent. The undecidable sentence is con-
+                    structed by a function that takes “GIVEN” as an argument, so it is represented by
+                    the term (UNDECIDABLE-SENTENCE GIVEN). The negation of this is (F-NOT
+                    (UNDECIDABLE-SENTENCE GIVEN)). Thus, we can construct an undecidable
+                    sentence for any assumption list GIVEN so that any additional undecidable sentence
+                    only yields a new undecidable sentence. Therefore, Z2 is essentially incomplete. The
+                    incompleteness theorem asserts the existence of a sentence such that if it is either
+                    provable or disprovable, it is both provable and disprovable. That sentence is then
+                    explicitly constructed in the proof.</p>
+                    <p>The representability of the metatheory refers to the non-mechanized proofs of the
+                    incompleteness theorem [5]. The Boyer-Moore prover utilizes the Lisp logical oper-
+                    ators and the Z2 theory to complete the proof. The steps to the representability
+                    theorem include defining a Lisp evaluator, showing that the evaluator can be rep-
+                    resented in Z2, and finally, showing that the metatheoretical Lisp functions for Z2
+                    can be computed in the evaluator. Finally, the undecidable sentence can be con-
+                    structed and the incompleteness theorem can be proved. The steps required to
+                    construct the unpredictable sentence include the representation of an enumeration
+                    of Z2 proofs, defining a Lisp predicate to search for the first proof of disproof of
+                    a formula (also referred to as a theorem checker), and finally, using the fact that
+                    the predicate is representable to construct a sentence that states of itself that it is
+                    not provable. The undecidable sentence that is constructed is parameterized by the
+                    axioms added to the theory. Therefore, the incompleteness proof shows that Z2 is
+                    essentially incomplete. It is incomplete because of the addition of finitely many new
+                    axioms.
+                    </p>
+            </section>
+
+            
+        
+        
+        </main>
+        
+        <script src="script.js"></script>    
+    </body>
+</html>
