@@ -10,36 +10,19 @@
     padding: 10px;
     flex: 50%;
 }
-.menu1 {
+.menu1, .menu2, .menu3, .menu4 {
     text-align: right;
     background-color: black;
     color: white;
     padding: 10px;
     flex: 10%;
 }
-.menu2 {
-    text-align: right;
-    background-color: black;    
+
+.menu1:link, .menu2:link, .menu3:link, .menu4:link {
     color: white;
-    padding: 10px;
-    flex: 10%;
 }
-.menu3 {
-    text-align: right;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    flex: 10%;
-}
-.menu4 {
-    text-align: right;
-    background-color: black;
-    color: white;
-    padding: 10px;
-    flex: 10%;
-}
-.menu4:link {
-    color:white;
+.menu1:hover, .menu2:hover, .menu3:hover, .menu4:hover {
+    text-decoration: underline;
 }
 .menuBar:visited {
     color:white;
