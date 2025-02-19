@@ -38,10 +38,6 @@ function changeLinkColor(link, color) {
   link.style.color = color;
 }
 
-links.forEach(link => {
-  changeLinkColor(link, "blue"); 
-});
-
 let logo = document.querySelector(".menu0");
 
 function changeLogo(logo, newText) {
